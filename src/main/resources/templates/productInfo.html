@@ -1,10 +1,129 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!-- jQuery Version 1.11.0 -->
+<!-- <script src="js/jquery-1.11.0.js"></script> -->
+
+<!-- Bootstrap Core JavaScript -->
+<!-- <script src="js/bootstrap.min.js"></script> -->
+<link href="/css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
-<p th:text="'Product Name ' + ${productInfo} + '!'" />
+
+	<div id="wrapper">
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="row ng-scope">
+						<div class="col-md-12">
+							<div class="row" style="margin-top: 10px;">
+								<div class="col-sm-7">
+									<p th:text="${product.getModel()}" />
+									<p th:text="'Product Name ' + ${product.getShortDesc()}" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-6">
+									<img src="" class="img-thumbnail img-responsive" alt="" />
+								</div>
+								<div class="col-sm-6">
+
+									<p th:text="'Product:'+${product.getModel()}" />
+									<p th:text="'Price: '+${product.getPrice()}" />
+									<table class="table">
+										<!-- <thead>
+                                <tr>
+                                    <th ng-repeat='(key, value) in data.attributes'>{{key | uppercase}}</th>
+                                </tr>
+                            </thead> -->
+										<tbody>
+
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<form method="post" th:action="@{/submitOrderInfo}">
+
+								<div class="row">
+									<div class="col-sm-6">
+
+										<fieldset>
+											<legend>Shipping Info:</legend>
+											<table>
+												<tr>
+													<td>Zip Code</td>
+													<td><input name="zipCode"/></td>
+												</tr>
+												<tr>
+													<td>Full Name</td>
+													<td><input name="fullName" /></td>
+												</tr>
+												<tr>
+													<td>Street Address</td>
+													<td><input name="streetAddress" /></td>
+												</tr>
+												<tr>
+													<td>Location/Town</td>
+													<td><input name="town" /></td>
+												</tr>
+												<tr>
+													<td>State</td>
+													<td><input name="state" /></td>
+												</tr>
+												<tr>
+													<td>Mobile No</td>
+													<td><input name="contact" /></td>
+												</tr>
+
+											</table>
+										</fieldset>
+
+									</div>
+									<div class="col-sm-6">
+										<fieldset>
+											<legend>Payment Info:</legend>
+											<table>
+												<tr>
+													<td>Credit Card Number</td>
+													<td><input name="cardNumber"/></td>
+												</tr>
+												<tr>
+													<td>Name on Credit Card</td>
+													<td><input name="nameOnCard" /></td>
+												</tr>
+												<tr>
+													<td>Expiry Month</td>
+													<td><input name="expiryMonth" /></td>
+												</tr>
+												<tr>
+													<td>Expiry Year</td>
+													<td><input name="expiryYear" /></td>
+												</tr>
+												<tr>
+													<td>CVV</td>
+													<td><input name="cvv" maxlength="3" /></td>
+												</tr>
+											</table>
+										</fieldset>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-6">
+										<input type="submit" value="Submit" name="SubmitButton" />
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
 </body>
 </html>

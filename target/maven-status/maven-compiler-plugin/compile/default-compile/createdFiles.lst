@@ -1,6 +1,7 @@
-com/catalog/order/config/AppConfig.class
-com/catalog/order/bean/UserBean.class
 com/catalog/order/controller/OrderController.class
 com/catalog/order/Application.class
-com/catalog/order/config/WebSecurityConfig.class
 com/catalog/order/dao/AuthenticationDAO.class
+com/catalog/order/config/AppConfig.class
+com/catalog/order/bean/UserBean.class
+com/catalog/order/bean/ProductInfo.class
+com/catalog/order/config/WebSecurityConfig.class

@@ -1,48 +1,87 @@
 package com.catalog.order.bean;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ProductInfo {
-	private String productID;
-	private String productName;
-	private double price;
-	private String description;
-	private Date startDate, endDate;
-	public String getProductID() {
-		return productID;
+
+	protected String _id;
+	protected String make;
+	protected String model;
+	protected String imgUrl;
+	protected String shortDesc;
+	protected HashMap<String, String> attributes;
+	protected Date startDate, endDate;
+
+	public String get_id() {
+		return _id;
 	}
-	public void setProductID(String productID) {
-		this.productID = productID;
+
+	public void set_id(String _id) {
+		this._id = _id;
 	}
-	public String getProductName() {
-		return productName;
+
+	public String getMake() {
+		return make;
 	}
-	public void setProductName(String productName) {
-		this.productName = productName;
+
+	public void setMake(String make) {
+		this.make = make;
 	}
-	public double getPrice() {
-		return price;
+
+	public String getModel() {
+		return model;
 	}
-	public void setPrice(double price) {
-		this.price = price;
+
+	public void setModel(String model) {
+		this.model = model;
 	}
-	public String getDescription() {
-		return description;
+
+	public String getImgUrl() {
+		return imgUrl;
 	}
-	public void setDescription(String description) {
-		this.description = description;
+
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
 	}
-	public Date getStartDate() {
-		return startDate;
+
+	public String getShortDesc() {
+		return shortDesc;
 	}
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
+
+	public void setShortDesc(String shortDesc) {
+		this.shortDesc = shortDesc;
 	}
+
+	public Map<String, String> getAttributes() {
+		return attributes;
+	}
+
+	public void setAttributes(HashMap<String, String> attributes) {
+		this.attributes = attributes;
+	}
+
 	public Date getEndDate() {
 		return endDate;
 	}
+
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
 	
+	public String getPrice(){
+		return this.attributes.get("price");
+	}
 }

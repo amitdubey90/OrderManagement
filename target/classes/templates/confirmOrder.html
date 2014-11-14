@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Confirm Your Order</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!-- jQuery Version 1.11.0 -->
+<!-- <script src="js/jquery-1.11.0.js"></script> -->
+
+<!-- Bootstrap Core JavaScript -->
+<!-- <script src="js/bootstrap.min.js"></script> -->
+<link href="/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+
+	<div id="wrapper">
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="row ng-scope">
+						<div class="col-md-12">
+							<div class="row" style="margin-top: 10px;">
+								<div class="col-sm-7">
+									<p th:text="${product.getModel()}" />
+									<p th:text="'Product Name ' + ${product.getShortDesc()}" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-6">
+									<img src="" class="img-thumbnail img-responsive" alt="" />
+								</div>
+								<div class="col-sm-6">
+
+									<p th:text="'Product:'+${product.getModel()}" />
+									<p th:text="'Price: '+${product.getPrice()}" />
+									<table class="table">
+										<!-- <thead>
+                                <tr>
+                                    <th ng-repeat='(key, value) in data.attributes'>{{key | uppercase}}</th>
+                                </tr>
+                            </thead> -->
+										<tbody>
+
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<form method="post" th:action="@{/confirmOrder}">
+
+								<div class="row">
+									<div class="col-sm-6">
+
+										<fieldset>
+											<input type="hidden" name="zipCode"
+												th:value="${shipping.zipCode}" /> <input name="fullName"
+												type="hidden" th:value="${shipping.fullName}" /> <input
+												name="streetAddress" type="hidden"
+												th:value="${shipping.streetAddress}" /> <input name="town"
+												type="hidden" th:value="${shipping.town}" /> <input
+												name="state" type="hidden" th:value="${shipping.state}" />
+											<input name="contact" type="hidden"
+												th:value="${shipping.contact}" />
+											<legend>Shipping Info:</legend>
+											<table>
+												<tr>
+													<td>Zip Code</td>
+													<td th:text="${shipping.ZipCode}"></td>
+												</tr>
+												<tr>
+													<td>Full Name</td>
+													<td th:text="${shipping.fullName}"></td>
+												</tr>
+												<tr>
+													<td>Street Address</td>
+													<td th:text="${shipping.streetAddress}"></td>
+												</tr>
+												<tr>
+													<td>Location/Town</td>
+													<td th:text="${shipping.town}"></td>
+												</tr>
+												<tr>
+													<td>State</td>
+													<td th:text="${shipping.state}"></td>
+												</tr>
+												<tr>
+													<td>Mobile No</td>
+													<td th:text="${shipping.contact}"></td>
+												</tr>
+
+											</table>
+										</fieldset>
+
+									</div>
+									<div class="col-sm-6">
+										<fieldset>
+											<legend>Payment Info:</legend>
+											<input type="hidden" name="cardNumber"
+												th:value="${payment.cardNumber}" /> <input type="hidden"
+												name="nameOnCard" th:value="${payment.nameOnCard}" /><input
+												type="hidden" name="expiryMonth"
+												th:value="${payment.expiryMonth}" /><input type="hidden"
+												name="expiryYear" th:value="${payment.expiryYear}" /><input
+												type="hidden" name="cvv" maxlength="3"
+												th:value="${payment.cvv}" />
+											<table>
+												<tr>
+													<td>Credit Card Number</td>
+													<td th:text="${payment.cardNumber}"></td>
+
+												</tr>
+												<tr>
+													<td>Name on Credit Card</td>
+													<td th:text="${payment.nameOnCard}"></td>
+												</tr>
+												<tr>
+													<td>Expiry Month</td>
+													<td th:text="${payment.expiryMonth}"></td>
+												</tr>
+												<tr>
+													<td>Expiry Year</td>
+													<td th:text="${payment.expiryYear}"></td>
+												</tr>
+												<tr>
+													<td>CVV</td>
+													<td th:text="${payment.cvv}"></td>
+												</tr>
+											</table>
+										</fieldset>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-6">
+										<input type="submit" value="Confirm Order" name="SubmitButton" />
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+</body>
+</html>
