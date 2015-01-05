@@ -1,8 +1,8 @@
 OrderManagement
 ===============
 Simple Order Management application
-Use Sring boot + Spring Security + thyme
-Express for front end
+Use Sring boot + Spring Security 
+thymeleaf + Angular JS for front end
 
 
 
